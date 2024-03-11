@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css' integrity='sha512-b2QcS5SsA8tZodcDtGRELiGv5SaKSk1vDHDaQRda0htPYWZ6046lr3kJ5bAAQdpV2mmA/4v0wQF9MyU6/pDIAg==' crossorigin='anonymous'/>
+
+  <!-- Vue Js  -->
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+  <link rel="stylesheet" href="css/style.css">
+  <title>Vue Hello</title>
+
+</head>
+<body>
+
+  <!-- qui viene innestato Vue  -->
+  <div id="app">
+    <div class="container my-5">
+      <h2 class="text-end">{{ displayClock }}</h2>
+      <input type="text" class="form-control" v-model="messaggio" >
+      <input type="text" class="form-control" v-model="miaClasseCss" >
+      <input type="text" class="form-control" v-model="altraClasseCss" >
+      <!-- il bindig della classe lo ottendo mettendo i : pria di class  -->
+      <h1 :class="miaClasseCss">{{ messaggio }} - con una classe dinamica</h1>
+      <!-- se ho più classi dinamiche le inserisco in un array  -->
+      <h2 :class="[miaClasseCss, altraClasseCss]">{{ messaggio }} -  con 2 classi dinamiche</h2>
+      <h3>{{ messaggio }}</h3>
+      <h4>{{ messaggio }}</h4>
+      <h5>{{ messaggio }}</h5>
+      <h6>{{ messaggio }}</h6>
+      <p>{{ messaggio }}</p>
+      <h3>{{ altroMessaggio }} {{ nome }} {{ cognome }}!!! Tutto</h3>
+      <!-- se isGrassetto === true metti la classe "grassetto" altrimento no  -->
+      <p :class="{'grassetto': isGrassetto}"> CON BINDIG DI OGGETTO{{ testo }}</p>
+      <!-- stessa situazione con operatore ternario  -->
+      <p :class="isGrassetto ? 'grassetto' : ''">CON OPERATORE TERNARIO{{ testo }}</p>
+      <p  class="rosso" :class="[{'grassetto': isGrassetto }, altraClasseCss]" >{{ testo }}</p>
+      <button @click="isGrassetto = !isGrassetto" class="btn btn-primary mb-3">toggle testo in bold</button> <br>
+
+      <input type="text" class="form-control" v-model="link" >
+      <a :href="link" target="_blank">GOOGLE</a>
+      <!-- se il testo è in formato HTML uso la direttiva v-html e non {{}} -->
+      <div v-html="testoHtml"></div>
+      <button @click="saluto" class="btn btn-primary mb-3 ">invoco la funzione saluto()</button> <br>
+      <h2>Il mio contatore è: {{ contatore }}</h2>
+      <button @click="incrementaContatore" class="btn btn-primary mb-3">contatore {{ contatore }}</button> <br>
+      <button @click="contatore++" class="btn btn-primary mb-3">contatore senza funzione {{ contatore }}</button> <br>
+      <button @click="altroSaluto('Ciao!!!')" class="btn btn-primary mb-3">altroSaluto(salutoStr)</button> <br>
+    </div>
+  </div>
+
+  
+
+
+
+  <script src="js/script.js"></script>
+</body>
+</html>

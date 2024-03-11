@@ -1,0 +1,18 @@
+.rosso{
+  color: red;
+}
+.verde{
+  color: green;
+}
+
+.corsivo{
+  font-style: italic;
+}
+
+.sottolineato{
+  text-decoration: underline;
+}
+
+.grassetto{
+  font-weight: bold;
+}
